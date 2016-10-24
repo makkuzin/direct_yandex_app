@@ -9,6 +9,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'bootstrap-sass', '~> 3.3'
+gem 'omniauth-yandex'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
