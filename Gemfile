@@ -10,6 +10,7 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'bootstrap-sass', '~> 3.3'
 gem 'omniauth-yandex'
+gem 'ya-api-direct'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do

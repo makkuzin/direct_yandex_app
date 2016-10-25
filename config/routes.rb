@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'application#index'
-  get '/auth/:provider/callback' => 'sessions#create'
-  get 'report' => 'report#index'
+  resource :report, only: [:show, :update]
+  get '/auth/:provider/callback' => 'reports#update'
+  root 'reports#show'
 end

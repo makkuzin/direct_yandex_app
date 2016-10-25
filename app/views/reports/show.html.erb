@@ -1,0 +1,32 @@
+<div class="text-center">
+  <h1>Тестовое задание для E-Promo</h1>
+  <% unless @campaigns.empty? %>
+    <p>Токен: <strong><%= session[:api_token] %></strong></p>
+    <% ################################## %>
+    <h2>Campaigns</h2>
+    <% @campaigns.each do |campaign| %>
+      <ul>
+	<% campaign.keys.sort.each do |key| %>
+	  <li>
+	    <strong><%= key %>: </strong>
+	    <%= campaign[key] %>
+	  </li>
+	<% end %>
+      </ul><br>
+    <% end %>
+    <% ################################## %>
+    <h2>Keywords</h2>
+    <% @keywords.each do |keyword| %>
+      <ul>
+	<% keyword.keys.each do |key| %>
+	  <li>
+	    <strong><%= key %>: </strong>
+	    <%= keyword[key] %>
+	  </li>
+	<% end %>
+      </ul><br>
+    <% end %>
+  <% else %>
+    <%= link_to "Получить данные для отчета", '/auth/yandex', class: 'btn btn-primary' %>
+  <% end %>
+</div>
