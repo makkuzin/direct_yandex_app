@@ -11,7 +11,10 @@ gem 'turbolinks', '~> 5'
 gem 'bootstrap-sass', '~> 3.3'
 gem 'omniauth-yandex'
 gem 'ya-api-direct'
-# gem 'capistrano-rails', group: :development
+gem 'capistrano'
+gem 'capistrano-bundler'
+gem 'capistrano-rails'
+gem 'capistrano-rbenv', git: 'https://github.com/capistrano/rbenv'
 
 group :development, :test do
   gem 'byebug', platform: :mri
