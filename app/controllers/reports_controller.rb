@@ -4,7 +4,11 @@ class ReportsController < ApplicationController
   end
 
   def update
-    token = request.env['omniauth.auth']['credentials']['token'].to_s
+    token = if Rails.env.development?
+	      DEBUG_TOKEN
+	    elsif Rails.env.production?
+	      request.env['omniauth.auth']['credentials']['token'].to_s
+	    end
     direct = Ya::API::Direct::Client.new({
       token: token,
       mode: :sandbox
