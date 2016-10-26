@@ -14,6 +14,16 @@ class ReportsController < ApplicationController
       mode: :sandbox
     })
     [Campaign, Keyword].each { |m| m.update_table(direct) }
+    flash[:success] = "Список кампаний обновлен"
+  rescue => e
+    flash[:danger] = e.message
+  ensure
+    redirect_to root_path
+  end
+
+  def destroy
+    Campaign.destroy_all
+    flash[:success] = "База данных очищена"
     redirect_to root_path
   end
 end

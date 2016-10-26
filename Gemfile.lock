@@ -6,6 +6,12 @@ GIT
       capistrano (~> 3.1)
       sshkit (~> 1.3)
 
+GIT
+  remote: https://github.com/makkuzin/ya-api-direct
+  revision: 6d20cac1bb927a8fb00263c79d4f0f0eb4cc20a8
+  specs:
+    ya-api-direct (0.2.5)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -206,7 +212,6 @@ GEM
     websocket-driver (0.6.4)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
-    ya-api-direct (0.2.5)
 
 PLATFORMS
   ruby
@@ -232,7 +237,7 @@ DEPENDENCIES
   turbolinks (~> 5)
   uglifier (>= 1.3.0)
   web-console
-  ya-api-direct
+  ya-api-direct!
 
 BUNDLED WITH
    1.13.3

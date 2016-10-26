@@ -15,3 +15,9 @@
 //= require turbolinks
 //= require bootstrap
 //= require_tree .
+
+document.addEventListener("turbolinks:load", function() {
+  setTimeout(function() {
+    $('p.alert').slideUp(300)
+  }, 3000)
+});

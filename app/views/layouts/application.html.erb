@@ -8,8 +8,30 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <% console if Rails.env.development? %>
-    <%= yield %>
+  <body class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+	<header>
+	  <h1 class="header text-center">Тестовое задание для E-Promo</h1>
+	  <% flash.each do |key, value| %>
+	    <p class="text-center alert alert-<%= key %>"><%= value %></p>
+	  <% end %>
+	  <div class="buttons">
+	    <% if Rails.env.development? %>
+	      <%= link_to get_data_link_name, report_path, method: :put, class: 'btn btn-primary', id: 'get_data' %>
+	    <% elsif Rails.env.production? %>
+	      <%= link_to get_data_link_name, '/auth/yandex', class: 'btn btn-primary', id: 'get_data' %>
+	    <% end %>
+	    <%= link_to "Очистить базу данных", report_path, method: :delete, data: { confirm: "Вы уверены?" }, class: 'btn btn-default', id: 'clear_db' %>
+	  </div>
+	</header>
+	<main>
+	  <%= yield %>
+	</main>
+      </div>
+    </div>
+    <footer class="navbar navbar-fixed-bottom">
+      <a href="mailto:akkmaxon2307@gmail.com">Аккузин Максим</a>
+    </footer>
   </body>
 </html>
