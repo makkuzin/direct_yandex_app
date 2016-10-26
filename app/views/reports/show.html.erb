@@ -1,22 +1,38 @@
-<% @campaigns.each do |campaign| %>
-  <ul>
-    <h2>Campaign</h2>
-    <% campaign.attributes.each do |key, value| %>
-      <li>
-	<strong><%= key %>: </strong>
-	<%= value %>
-      </li>
-    <% end %>
-  </ul><br>
-  <ul>
-    <h3>Keywords</h3>
-    <% campaign.keywords.each do |keyword| %>
-      <% keyword.attributes.each do |key, value| %>
-	<li>
-	  <strong><%= key %>: </strong>
-	  <%= value %>
-	</li>
+<div class="table-responsive">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+	<th>Кампания</th>
+	<th>Показы</th>
+	<th>Клики</th>
+	<th>Цена(расход)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @campaigns.each do |campaign| %>
+	<tr data-toggle="collapse" href="#collapse_<%= campaign.id %>">
+	  <td class="model_name"><%= campaign.name %></td>
+	  <td><%= campaign.total_impressions %></td>
+	  <td><%= campaign.total_clicks %></td>
+	  <td><%= campaign.total_bid %></td>
+	</tr>
+	<tr class="collapse" id="collapse_<%= campaign.id %>">
+	  <td class="collapse_container" colspan="4">
+	    <table class="table">
+	      <tbody>
+		<% campaign.keywords.each do |keyword| %>
+		  <tr class="active">
+		    <td class="model_name"><%= keyword.name %></td>
+		    <td><%= keyword.impressions %></td>
+		    <td><%= keyword.clicks %></td>
+		    <td><%= keyword.bid %></td>
+		  </tr>
+		<% end %>
+	      </tbody>
+	    </table>
+	  </td>
+	</tr>
       <% end %>
-    <% end %>
-  </ul><br>
-<% end %>
+    </tbody>
+  </table>
+</div>

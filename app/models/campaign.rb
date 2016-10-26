@@ -19,4 +19,16 @@ class Campaign < ApplicationRecord
       "FieldNames" => ["Id", "Name"]
     })["result"]["Campaigns"]
   end
+
+  def total_impressions
+    0
+  end
+
+  def total_clicks
+    0
+  end
+
+  def total_bid
+    1000000
+  end
 end
