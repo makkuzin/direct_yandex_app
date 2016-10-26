@@ -20,15 +20,15 @@ class Campaign < ApplicationRecord
     })["result"]["Campaigns"]
   end
 
-  def total_impressions
+  def impressions_sum
     keywords.pluck(:impressions).sum
   end
 
-  def total_clicks
+  def clicks_sum
     keywords.pluck(:clicks).sum
   end
 
-  def total_bid
+  def bid_sum
     keywords.pluck(:bid).sum
   end
 end

@@ -9,12 +9,18 @@
       </tr>
     </thead>
     <tbody>
+      <tr id="total_string">
+	<td class="model_name">Total</td>
+	<td><%= Keyword.total_impressions %></td>
+	<td><%= Keyword.total_clicks %></td>
+	<td><%= Keyword.total_bid %></td>
+      </tr>
       <% @campaigns.each do |campaign| %>
 	<tr data-toggle="collapse" href="#collapse_<%= campaign.id %>">
 	  <td class="model_name"><%= campaign.name %></td>
-	  <td><%= campaign.total_impressions %></td>
-	  <td><%= campaign.total_clicks %></td>
-	  <td><%= campaign.total_bid %></td>
+	  <td><%= campaign.impressions_sum %></td>
+	  <td><%= campaign.clicks_sum %></td>
+	  <td><%= campaign.bid_sum %></td>
 	</tr>
 	<tr class="collapse" id="collapse_<%= campaign.id %>">
 	  <td class="collapse_container" colspan="4">

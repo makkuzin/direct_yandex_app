@@ -23,4 +23,16 @@ class Keyword < ApplicationRecord
       "FieldNames" => ["Id", "CampaignId", "Keyword", "Bid", "StatisticsSearch"]
     })["result"]["Keywords"]
   end
+
+  def self.total_impressions
+    pluck(:impressions).sum
+  end
+
+  def self.total_clicks
+    pluck(:clicks).sum
+  end
+
+  def self.total_bid
+    pluck(:bid).sum
+  end
 end

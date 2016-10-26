@@ -50,6 +50,11 @@ main {
     td {
       width: $column_width;
     }
+    #total_string {
+      font-weight: bold;
+      color: #fff;
+      background-color: #2084b3;
+    }
   }
   .collapse_container {
     padding: 0 !important;
