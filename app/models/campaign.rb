@@ -21,14 +21,14 @@ class Campaign < ApplicationRecord
   end
 
   def total_impressions
-    0
+    keywords.pluck(:impressions).sum
   end
 
   def total_clicks
-    0
+    keywords.pluck(:clicks).sum
   end
 
   def total_bid
-    1000000
+    keywords.pluck(:bid).sum
   end
 end

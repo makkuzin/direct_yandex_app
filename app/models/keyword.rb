@@ -11,7 +11,7 @@ class Keyword < ApplicationRecord
 	name: received_keyword["Keyword"],
 	impressions: received_keyword["StatisticsSearch"]["Impressions"].to_i,
 	clicks: received_keyword["StatisticsSearch"]["Clicks"].to_i,
-	bid: received_keyword["CampaignId"].to_i
+	bid: received_keyword["Bid"].to_i
       }
       Keyword.create_or_update({id: params[:id], campaign_id: params[:campaign_id]}, params)
     end
